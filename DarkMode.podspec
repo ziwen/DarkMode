@@ -92,7 +92,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.source_files  = "DarkMode", "DarkTestDemo/DarkMode/**/*.{h,m}"
-  #spec.exclude_files = "DarkMode/"
+  #spec.exclude_files = "DarkMode"
 
   # spec.public_header_files = "Classes/**/*.h"
 
