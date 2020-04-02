@@ -10,12 +10,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-API_AVAILABLE(ios(12.0))
+//API_AVAILABLE(ios(12.0))
 typedef void(^TMapUserInterfaceStyleBlock)(UIUserInterfaceStyle style);
 
 @interface TMapViewController : UIViewController
 
-@property (nonatomic, copy, nullable) TMapUserInterfaceStyleBlock block API_AVAILABLE(ios(12.0));
+@property (nonatomic, copy, nullable) TMapUserInterfaceStyleBlock block;// API_AVAILABLE(ios(12.0));
 
 @end
 

@@ -25,7 +25,7 @@
     if (!_btn) {
         _btn = [UIButton buttonWithType:UIButtonTypeCustom];
         _btn.frame = CGRectMake(60, 160 , 100, 44);
-        [_btn setTitle:@"白天模式" forState:UIControlStateNormal];
+        [_btn setTitle:@"改变模式" forState:UIControlStateNormal];
         _btn.backgroundColor = [UIColor lightGrayColor];
    //     [_btn dk_setTitleColorPicker: DKColorPickerWithKey(btn) forState:UIControlStateNormal];
      //   [_btn dk_setTitleColor:TMapAppearanceColor(btn) forState:UIControlStateNormal];

@@ -1,8 +1,8 @@
-NORMAL   NIGHT    RED
-#ffffff  #343434  #fafafa BG
-#aaaaaa  #313131  #aaaaaa SEP
-#0000ff  #ffffff  #fa0000 TINT
-#000000  #ffffff  #000000 TEXT
-#ffffff  #444444  #ffffff BAR
-#f0f0f0  #222222  #dedede HIGHLIGHTED
-#ffffff  #000000  #dedede btn
+NORMAL   NIGHT
+#00ff00  #ff0000   BG
+#00cc00  #cc0000   SEP
+#00aa00  #aa0000   TINT
+#008800  #880000   TEXT
+#006600  #660000   BAR
+#004400  #440000   HIGHLIGHTED
+#002200  #220000   btn

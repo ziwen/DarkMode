@@ -76,7 +76,7 @@ static dispatch_once_t onceToken;
             };
         }
     } else {
-        
+
         if (@available(iOS 12.0, *)) {
             _viewController.block = nil;
         } else {

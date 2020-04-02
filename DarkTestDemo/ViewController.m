@@ -28,11 +28,11 @@
     
 //    self.overrideUserInterfaceStyle = UIUserInterfaceStyleLight;
     self.view.backgroundColor = [UIColor whiteColor];
-    [TMapDarkVersionManager shareManager].systemInterfaceStyleEnable = NO;
+    [TMapDarkVersionManager shareManager].systemInterfaceStyleEnable = YES;
     [self.view addSubview:self.btn];
     [self testFPSLabel];
     CFTimeInterval start = [[NSDate date] timeIntervalSince1970] * 1000;
-//    [self addVieForTest];
+    [self addVieForTest];
     [self testForImage];
     CFTimeInterval end = [[NSDate date] timeIntervalSince1970] * 1000;
     NSLog(@"INIT time:%f", end-start);
@@ -43,7 +43,7 @@
 
 - (void)testFPSLabel {
     _fpsLabel = [FPSLabel new];
-    _fpsLabel.frame = CGRectMake(160, 160, 50, 30);
+    _fpsLabel.frame = CGRectMake(100, 120, 50, 30);
     [_fpsLabel sizeToFit];
     [self.view addSubview:_fpsLabel];
     
@@ -54,14 +54,14 @@
 }
 
 - (void)addVieForTest {
-      int count = 2;
+      int count = 10;
       for (int i = 0; i< count; i++) {
           CGRect rect = [UIScreen mainScreen].bounds;
           UIView *view = [[UIView alloc] initWithFrame:CGRectMake(i*1.0/rect.size.width,
                                                                   i* 1.0/count * (rect.size.height-204) + 204,
                                                                   rect.size.width- i*1.0/rect.size.width,
                                                                   rect.size.height- i*1.0/rect.size.height)];
-         switch (i %6) {
+         switch (i % 6) {
              case 0:
 //                 view.backgroundColor = [UIColor redColor];
                  view.dk_backgroundColor = TMapAppearanceColor(BG);
@@ -98,11 +98,9 @@
 
 - (void)testForImage {
     UIImageView *imageView =  [[UIImageView alloc] init];
-    imageView.frame = CGRectMake(200, 200, 200, 200);
+    imageView.frame = CGRectMake(200, 100, 200, 200);
     imageView.dk_image = TMapApperanceImage(ic_checkbox);
     [self.view addSubview:imageView];
-    
-    
 }
 
 
@@ -110,7 +108,7 @@
     if (!_btn) {
         _btn = [UIButton buttonWithType:UIButtonTypeCustom];
         _btn.frame = CGRectMake(60, 160 , 100, 44);
-        [_btn setTitle:@"白天模式" forState:UIControlStateNormal];
+        [_btn setTitle:@"改变模式" forState:UIControlStateNormal];
         _btn.backgroundColor = [UIColor lightGrayColor];
    //     [_btn dk_setTitleColorPicker: DKColorPickerWithKey(btn) forState:UIControlStateNormal];
      //   [_btn dk_setTitleColor:TMapAppearanceColor(btn) forState:UIControlStateNormal];
@@ -163,4 +161,30 @@
     }
 }
 
+
+
+- (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection{
+    NSLog(@"traitCollectionChanged:%ld",previousTraitCollection.userInterfaceStyle);
+ //   [self iv2updateImage];
+    
+        [super traitCollectionDidChange:previousTraitCollection];
+        if (@available(iOS 13.0, *)) {
+            if ([self.traitCollection hasDifferentColorAppearanceComparedToTraitCollection:previousTraitCollection]) {
+                // 适配代码
+                if (([TMapDarkVersionManager shareManager].theme == TMapThemeNight)) {
+                    [[TMapDarkVersionManager shareManager] dawnComing];
+                } else {
+                    [[TMapDarkVersionManager shareManager] nightFalling];
+                }
+                
+//                __weak __typeof(self) weakSelf = self;
+//                if (self.block) {
+//                    self.block(weakSelf.traitCollection.userInterfaceStyle);
+//                }
+            }
+        } else {
+    
+        }
+    
+}
 @end

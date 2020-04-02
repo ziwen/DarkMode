@@ -53,9 +53,6 @@
 //    [self dk_setTintColor:self.tintColor];
 //}
 
-- (void)dealloc
-{
-    NSLog(@"aaaa");
-}
+
 
 @end
